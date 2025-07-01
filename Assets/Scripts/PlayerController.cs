@@ -11,9 +11,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction = Vector2.zero; // Direction du mouvement du joueur
     public float speed = 5f; // Speed of the player
     
-    // Limites gauche et droite
-    public float minX = -8f;
-    public float maxX = 8f;
+    
     
     public GameObject missilePrefab;
     public Transform firePoint;
@@ -41,8 +39,8 @@ public class PlayerController : MonoBehaviour
     private void OnShootActionPerformed(InputAction.CallbackContext obj)
     {
         // Crée un missile à la position du firePoint (par ex. devant le joueur)
-        Instantiate(missilePrefab, firePoint.position, Quaternion.identity);
-        Debug.Log("Shoot action performed");
+        var missile = Instantiate(missilePrefab, firePoint.position, Quaternion.identity);
+        missile.tag = this.gameObject.tag; // Assigne le même tag que le joueur pour que le missile puisse toucher les ennemis
     }
 
     private void OnDisable()
@@ -65,25 +63,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
-
-        
         // bloquer le joueur dans la scene
-        float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
-        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
         
-        // if (Input.GetMouseButtonDown(0))
-        // {
-        //     // Crée un missile à la position du firePoint (par ex. devant le joueur)
-        //     Instantiate(missilePrefab, firePoint.position, Quaternion.identity);
-        // }  
-        // if (Mouse.current.leftButton.wasPressedThisFrame)
-        // {
-        //     Debug.Log("Clic détecté");
-        // }
+        transform.Translate(direction * speed * Time.deltaTime);
+        clampPlayerMovement();
+       
 
     }
+    void clampPlayerMovement()
+    {
+        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
 
+        float paddingX = 0.05f; // 5% des bords gauche et droit
+
+        pos.x = Mathf.Clamp(pos.x, paddingX, 1f - paddingX);
+
+        transform.position = Camera.main.ViewportToWorldPoint(pos);
+    }
+
+    
    
     }
 

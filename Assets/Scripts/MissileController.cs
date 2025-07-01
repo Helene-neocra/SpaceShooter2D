@@ -6,7 +6,8 @@ public class MissileController : MonoBehaviour
 {
     public float speed = 10f; // Vitesse du missile
     
-    
+    public int damage = 1;
+    public string targetTag = "Ennemis"; // Qui ce missile est censé toucher
     
     
     // Start is called before the first frame update
@@ -32,4 +33,22 @@ public class MissileController : MonoBehaviour
         }
 
     }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag(this.gameObject.tag))
+        {
+            Health health = other.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+            }
+
+            Destroy(gameObject); // détruire le missile après impact
+        }
+    }
+    
+    
+    
+    
 }

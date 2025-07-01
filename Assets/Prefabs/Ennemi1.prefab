@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271269812325629334}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.2548, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -0.314, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630235241241804844}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &5287746406232950246
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,10 +42,11 @@ GameObject:
   - component: {fileID: 630235241241804844}
   - component: {fileID: 1786330354876777780}
   - component: {fileID: 7882147399563745973}
-  - component: {fileID: 5766169118159334539}
+  - component: {fileID: 1852163532980940573}
+  - component: {fileID: 6261773698690962124}
   m_Layer: 0
   m_Name: Ennemi1
-  m_TagString: ennemis
+  m_TagString: Ennemis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +148,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -163,7 +164,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52, y: 0.46}
   m_EdgeRadius: 0
---- !u!114 &5766169118159334539
+--- !u!114 &1852163532980940573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,8 +173,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5287746406232950246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82cfbdbeea0c4ca2a536251e7ee38ae, type: 3}
+  m_Script: {fileID: 11500000, guid: e712843409ae44e87beb37b91f86811c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileEnnemiPrefab: {fileID: 788778154364916380, guid: b3e1fc5a4d2e843aea265d018c69ee1e, type: 3}
-  firePointEnnemi: {fileID: 523105944701787417}
+  missilePrefab: {fileID: 788778154364916380, guid: b3e1fc5a4d2e843aea265d018c69ee1e, type: 3}
+  firePoint: {fileID: 523105944701787417}
+  fireRate: 2
+--- !u!114 &6261773698690962124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5287746406232950246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdaaec6b6ce4042b5877dec66fcb544d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3

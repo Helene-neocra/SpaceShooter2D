@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4246368509081689513}
   m_Layer: 0
   m_Name: MissilePrefab
-  m_TagString: Missile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  damage: 1
+  targetTag: Ennemis
 --- !u!61 &3556233803329194815
 BoxCollider2D:
   m_ObjectHideFlags: 0
