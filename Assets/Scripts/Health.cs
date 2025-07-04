@@ -8,22 +8,18 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 3;
     private int currentHealth;
-
     void Awake()
     {
         currentHealth = maxHealth;
     }
-
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-
     void Die()
     {
         if (CompareTag("Player"))
@@ -32,7 +28,6 @@ public class Health : MonoBehaviour
             Invoke("RestartScene", 1f);
             return;
         }
-
         // Si c'est un ennemi, on regarde s'il en reste
         if (CompareTag("Ennemis"))
         {
@@ -43,17 +38,10 @@ public class Health : MonoBehaviour
                 return;
             }
         }
-
         Destroy(gameObject);
-
     }
-
     void RestartScene()
     {
-        Debug.Log("Restarting scene...");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    
-    
-    
 }

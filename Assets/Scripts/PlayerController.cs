@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Search;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,17 +9,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction = Vector2.zero; // Direction du mouvement du joueur
     public float speed = 5f; // Speed of the player
     
-    
-    
     public GameObject missilePrefab;
     public Transform firePoint;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     
     private void OnEnable()
     {
@@ -31,9 +20,6 @@ public class PlayerController : MonoBehaviour
         MoveAction.action.performed += OnMoveActionPerformed;
         MoveAction.action.canceled += OnMoveActionCanceled;
         MoveAction.action.Enable();
-        
-       
-
     }
 
     private void OnShootActionPerformed(InputAction.CallbackContext obj)
@@ -64,11 +50,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // bloquer le joueur dans la scene
-        
+        Debug.Log("Mouse" + ShootAction.action.ReadValue<float>());
         transform.Translate(direction * speed * Time.deltaTime);
         clampPlayerMovement();
-       
-
     }
     void clampPlayerMovement()
     {

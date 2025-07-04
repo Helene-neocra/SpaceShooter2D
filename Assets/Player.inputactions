@@ -18,7 +18,7 @@
                     "name": "Shoot",
                     "type": "Value",
                     "id": "03e28c95-8efa-44c7-a642-8e0b6401dac8",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -72,7 +72,7 @@
                 {
                     "name": "",
                     "id": "3807a7a5-a0a0-4cb9-9ce7-bc974193d084",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -5,18 +5,8 @@ using UnityEngine;
 public class MissileController : MonoBehaviour
 {
     public float speed = 10f; // Vitesse du missile
-    
     public int damage = 1;
     public string targetTag = "Ennemis"; // Qui ce missile est censé toucher
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         // Le missile avance vers le haut à chaque frame
@@ -31,9 +21,7 @@ public class MissileController : MonoBehaviour
         {
             Destroy(gameObject); // Détruit le missile s'il est hors de l'écran
         }
-
-    }
-    
+    } 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(this.gameObject.tag))
@@ -47,8 +35,4 @@ public class MissileController : MonoBehaviour
             Destroy(gameObject); // détruire le missile après impact
         }
     }
-    
-    
-    
-    
 }
