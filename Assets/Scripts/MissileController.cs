@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class MissileController : MonoBehaviour
 {
     public float speed = 10f; // Vitesse du missile
@@ -11,19 +8,19 @@ public class MissileController : MonoBehaviour
     {
         // Le missile avance vers le haut à chaque frame
         transform.Translate(Vector3.up * speed * Time.deltaTime);
-        
         // Vérifie si le missile est en dehors de l'écran
         if (transform.position.y > 10f) 
         {
-            Destroy(gameObject); // Détruit le missile s'il est hors de l'écran
+            gameObject.SetActive(false);// Détruit le missile s'il est hors de l'écran
         }
         if (transform.position.y < -10f) 
         {
-            Destroy(gameObject); // Détruit le missile s'il est hors de l'écran
+            gameObject.SetActive(false);// Détruit le missile s'il est hors de l'écran
         }
     } 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Vérifie si le missile touche un objet avec un tag différent de celui du joueur
         if (!other.CompareTag(this.gameObject.tag))
         {
             Health health = other.GetComponent<Health>();
@@ -31,8 +28,7 @@ public class MissileController : MonoBehaviour
             {
                 health.TakeDamage(damage);
             }
-
-            Destroy(gameObject); // détruire le missile après impact
+            gameObject.SetActive(false);// Détruit le missile s'il touche un ennemi ou le joueur
         }
     }
 }

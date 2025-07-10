@@ -907,6 +907,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 630235241241804844, guid: 32dfa685dda154187885a4b95bb4c318, type: 3}
   m_PrefabInstance: {fileID: 122052825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1981932551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981932553}
+  - component: {fileID: 1981932552}
+  m_Layer: 0
+  m_Name: Init
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1981932552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981932551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab7c1b732d5b45fdb94f0d3e5517c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjects: []
+  missilePrefab: {fileID: 2237684440419952802, guid: b6f9eaf2e7006430cb047daf57e66156, type: 3}
+  amountToPool: 100
+--- !u!4 &1981932553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981932551}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0285711, y: -0.3702078, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &929753763091696883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1272,3 +1319,4 @@ SceneRoots:
   - {fileID: 1277086395}
   - {fileID: 8198043323381693966}
   - {fileID: 220876414}
+  - {fileID: 1981932553}

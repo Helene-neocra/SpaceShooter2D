@@ -1,12 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class EnnemiShooter : MonoBehaviour
 {
     public GameObject missilePrefab;       // Missile à instancier
     public Transform firePoint;            // Point de tir
     public float fireRate = 2f;            // Temps entre deux tirs
+    
     void OnEnable()
     {
         StartCoroutine(FireRoutine());
@@ -27,5 +26,4 @@ public class EnnemiShooter : MonoBehaviour
          missile.tag = this.gameObject.tag;
         }
     }
-   
 }
